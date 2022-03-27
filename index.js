@@ -19,10 +19,14 @@ connection.connect((err) => {
     return err ? console.error('error conection: ' + err.stack) : console.log('connection as id: ' + connection.threadId)
 })
 
-//Inserir novos dados da tabela
-connection.query("DELETE FROM cadastros WHERE nome='alguem'", (err, result) => {
-    return err ? console.log('Erro ao inserir dados') : console.log('Cadastro realiazado com sucesso!')
-})
+//Inserir novos dados da tabela //Para deletar usar "DELETE FROM cadastros WHERE nome='alguem'"
+
+const submitForm = (firstName, lastName, email, password) => {
+    let insert = `INSERT INTO cadastros (firstName, lasName, email, password) VALUES (${firstName, lastName, email, password})`
+    connection.query(insert, (err, result) => {
+        return err ? console.log('Erro ao inserir dados') : console.log('Cadastro realiazado com sucesso!')
+    })
+}
 
 //Sucess connection -- exibir dados salvos >
 connection.query('SELECT * FROM cadastros', (err, rows, fields) => {
@@ -31,12 +35,9 @@ connection.query('SELECT * FROM cadastros', (err, rows, fields) => {
 //Consultar dados
 const consultDados = (rows) => {
     dados = [...rows]
+    console.log(dados)
 }
-
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
-})
 
 app.listen(3001)
 
-module.exports = consultDados
+module.exports = submitForm
