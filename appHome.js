@@ -7,6 +7,18 @@ function submit() {
     let email = document.querySelector('#email').value
     let password = document.querySelector('#password').value
 
-    return firstName != '' && lastName != '' && email != '' && password != '' ? submitForm(firstName, lastName, email, password) : alert('[ERROR] preencha todos os campos')
+    return firstName != '' && lastName != '' && email != '' && password != '' ? register(firstName, lastName, email, password) : alert('[ERROR] preencha todos os campos')
 
+}
+
+export default function register(firstName, lastName, email, password) {
+    const register = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password
+    }
+    return (
+        register
+    )
 }

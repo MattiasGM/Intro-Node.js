@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'user'
+    database: 'users'
 })
 
 let dados = []
@@ -22,7 +22,7 @@ connection.connect((err) => {
 //Inserir novos dados da tabela //Para deletar usar "DELETE FROM cadastros WHERE nome='alguem'"
 
 const submitForm = (firstName, lastName, email, password) => {
-    let insert = `INSERT INTO cadastros (firstName, lasName, email, password) VALUES (${firstName, lastName, email, password})`
+    let insert = `INSERT INTO cadastros (firstName, lasName, email, password) VALUES ('a','s','d','v')`
     connection.query(insert, (err, result) => {
         return err ? console.log('Erro ao inserir dados') : console.log('Cadastro realiazado com sucesso!')
     })
